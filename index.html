@@ -1,0 +1,1828 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partitura Empresarial | Transformamos el Caos en Claridad Estratégica</title>
+    <meta name="description" content="Ayudamos a PYMES mexicanas a eliminar el Impuesto Invisible de la Desalineación. Recupera hasta 35% de productividad perdida.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/webp" href="favicon.webp">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #1a4d4d;
+            --primary-light: #2d6b6b;
+            --accent: #d4af37;
+            --accent-light: #f4cf5c;
+            --bg-dark: #0f2424;
+            --bg-light: #f8f9fa;
+            --text-dark: #1a1a1a;
+            --text-light: #ffffff;
+            --text-muted: #6c757d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+            background: var(--bg-light);
+        }
+        
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+        
+        h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); }
+        h2 { font-size: clamp(2rem, 4vw, 3.5rem); }
+        h3 { font-size: clamp(1.5rem, 3vw, 2.25rem); }
+        
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        section {
+            padding: clamp(4rem, 10vh, 8rem) 0;
+        }
+        
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(26, 77, 77, 0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .logo-container {
+            height: 50px;
+        }
+        
+        .logo-container img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+        
+        .nav-cta {
+            background: var(--primary);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+        
+        .nav-cta:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(26, 77, 77, 0.2);
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--primary) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+            margin-top: 80px;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.15) 0%, transparent 50%);
+            animation: pulse 15s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+        }
+        
+        .hero-eyebrow {
+            font-size: 0.95rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent-light);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        .hero h1 {
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.2s forwards;
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 3rem;
+            font-weight: 300;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.4s forwards;
+        }
+        
+        .hero-cta-group {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.6s forwards;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .btn {
+            padding: 1.1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background: var(--accent);
+            color: var(--bg-dark);
+        }
+        
+        .btn-primary:hover {
+            background: var(--accent-light);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: white;
+        }
+        
+        /* Stats Bar */
+        .stats-bar {
+            background: var(--primary);
+            color: white;
+            padding: 3rem 0;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+        
+        .stat-item {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        .stat-item:nth-child(1) { animation-delay: 0.1s; }
+        .stat-item:nth-child(2) { animation-delay: 0.2s; }
+        .stat-item:nth-child(3) { animation-delay: 0.3s; }
+        .stat-item:nth-child(4) { animation-delay: 0.4s; }
+        
+        .stat-number {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-family: 'Playfair Display', serif;
+            color: var(--accent-light);
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 300;
+        }
+        
+        /* Problem Section */
+        .problem-section {
+            background: white;
+            position: relative;
+        }
+        
+        .section-eyebrow {
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .problem-header {
+            max-width: 800px;
+            margin-bottom: 4rem;
+        }
+        
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+        
+        .problem-card {
+            padding: 2.5rem;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border-radius: 20px;
+            border: 1px solid rgba(26, 77, 77, 0.1);
+            transition: all 0.4s ease;
+        }
+        
+        .problem-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(26, 77, 77, 0.15);
+            border-color: var(--accent);
+        }
+        
+        .problem-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .problem-card h3 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .problem-card p {
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+        
+        /* ROI Calculator */
+        .roi-section {
+            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--primary) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .roi-container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .roi-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            padding: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .roi-formula {
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            font-family: 'Playfair Display', serif;
+            margin: 2rem 0;
+            color: var(--accent-light);
+            line-height: 1.6;
+        }
+        
+        .roi-breakdown {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+        
+        .roi-item {
+            text-align: center;
+        }
+        
+        .roi-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-light);
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Solution Section */
+        .solution-section {
+            background: white;
+        }
+        
+        .methodology-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+        
+        .methodology-card {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 25px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .methodology-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .methodology-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .method-badge {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--bg-dark);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+        }
+        
+        .methodology-card h3 {
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+        
+        .methodology-features {
+            list-style: none;
+            margin-top: 2rem;
+        }
+        
+        .methodology-features li {
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: start;
+            gap: 1rem;
+        }
+        
+        .methodology-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .methodology-features li::before {
+            content: '✓';
+            color: var(--accent-light);
+            font-weight: 700;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        
+        /* Pillars Section */
+        .pillars-section {
+            background: var(--bg-light);
+        }
+        
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+        
+        .pillar-card {
+            background: white;
+            padding: 3rem 2.5rem;
+            border-radius: 20px;
+            border-left: 5px solid var(--accent);
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .pillar-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .pillar-number {
+            font-size: 3.5rem;
+            font-family: 'Playfair Display', serif;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: 1rem;
+            opacity: 0.3;
+        }
+        
+        .pillar-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        /* Services Section */
+        .services-section {
+            background: white;
+        }
+        
+        .services-intro {
+            max-width: 800px;
+            margin: 0 auto 4rem;
+            text-align: center;
+        }
+        
+        /* Special Offer Card */
+        .special-offer-card {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 25px;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(26, 77, 77, 0.3);
+        }
+        
+        .special-offer-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+        
+        .special-offer-card > * {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .offer-badge {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--bg-dark);
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+        
+        .special-offer-card h3 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+        
+        .offer-description {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .offer-requirements {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .offer-requirements h4 {
+            color: var(--accent-light);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .offer-requirements ul {
+            list-style: none;
+            display: grid;
+            gap: 1rem;
+        }
+        
+        .offer-requirements li {
+            display: flex;
+            align-items: start;
+            gap: 0.75rem;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        
+        .offer-requirements li::before {
+            content: '✓';
+            color: var(--accent-light);
+            font-weight: 700;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+        
+        .offer-cta-text {
+            text-align: center;
+            font-size: 1.1rem;
+            margin-top: 2rem;
+            color: var(--accent-light);
+        }
+        
+        .special-offer-card .btn {
+            display: inline-flex;
+            margin: 0 auto;
+        }
+        
+        .special-offer-card .btn-primary {
+            background: var(--accent);
+            color: var(--bg-dark);
+        }
+        
+        .special-offer-card .btn-primary:hover {
+            background: var(--accent-light);
+        }
+        
+        .service-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border-radius: 25px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            border: 2px solid transparent;
+            transition: all 0.4s ease;
+        }
+        
+        .service-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 20px 50px rgba(26, 77, 77, 0.15);
+        }
+        
+        .service-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1.5rem;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .service-title-group h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .service-type {
+            font-size: 0.9rem;
+            color: var(--accent);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .service-price {
+            background: var(--primary);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 15px;
+            text-align: right;
+            flex-shrink: 0;
+        }
+        
+        .price-label {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            margin-bottom: 0.25rem;
+        }
+        
+        .price-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-light);
+        }
+        
+        .service-description {
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        
+        .service-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--text-dark);
+        }
+        
+        .service-features li::before {
+            content: '→';
+            color: var(--accent);
+            font-weight: 700;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--primary) 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 30%, rgba(212, 175, 55, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 70% 70%, rgba(212, 175, 55, 0.1) 0%, transparent 50%);
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-section h2 {
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .qualification-checklist {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin: 3rem 0;
+            text-align: left;
+        }
+        
+        .qualification-checklist h4 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--accent-light);
+        }
+        
+        .checklist {
+            list-style: none;
+            display: grid;
+            gap: 1rem;
+        }
+        
+        .checklist li {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.05rem;
+        }
+        
+        .checklist li::before {
+            content: '✓';
+            color: var(--accent-light);
+            font-size: 1.5rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.6);
+        }
+        
+        .whatsapp-float::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 2px solid #25D366;
+            animation: pulse-ring 1.5s ease-out infinite;
+        }
+        
+        @keyframes pulse-ring {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--bg-dark);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-content {
+            text-align: center;
+        }
+        
+        .footer-logo {
+            height: 60px;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+        }
+        
+        .footer-contact {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+            font-size: 0.95rem;
+        }
+        
+        .footer-contact a {
+            color: var(--accent-light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-contact a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 2.5rem 0;
+        }
+        
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-light);
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background: var(--primary);
+            border-color: var(--accent);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.2);
+        }
+        
+        .social-link svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+        
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+        }
+        
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            section {
+                padding: 3rem 0;
+            }
+            
+            .methodology-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-cta-group {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .service-header {
+                flex-direction: column;
+            }
+            
+            .service-price {
+                width: 100%;
+            }
+            
+            nav {
+                padding: 1rem;
+            }
+            
+            .nav-cta {
+                display: none;
+            }
+        }
+        
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Transiciones Dinámicas entre Secciones - Estilo Orano */
+        section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Animación de aparición progresiva */
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: none;
+        }
+        
+        /* Loading Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        body {
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        /* Flip Clock Countdown */
+        .countdown-container {
+            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--primary) 100%);
+            padding: 2rem 0;
+            text-align: center;
+            color: white;
+        }
+        
+        .countdown-title {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            color: var(--accent-light);
+            font-weight: 600;
+        }
+        
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .countdown-block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .countdown-digit {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            border-radius: 10px;
+            width: 70px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            color: var(--accent-light);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .countdown-digit::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: rgba(0, 0, 0, 0.2);
+        }
+        
+        .countdown-label {
+            margin-top: 0.5rem;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        @media (max-width: 768px) {
+            .countdown-digit {
+                width: 60px;
+                height: 70px;
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo-container">
+                <div style="font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--primary);">
+                    🎼 PARTITURA EMPRESARIAL
+                </div>
+            </div>
+            <a href="#contacto" class="nav-cta">Agenda tu Sesión</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-eyebrow">Ingeniería de Alineación Organizacional para Empresas Familiares y PYMES</div>
+                <h1>¿Cuánto dinero pierdes cada mes por equipos desalineados?</h1>
+                <p class="hero-subtitle">
+                    Transformamos el desorden interno en claridad para decidir. Ayudamos a empresas familiares y PYMES en crecimiento (11-250 colaboradores) a eliminar el caos operativo y recuperar hasta 35% de productividad perdida en reuniones improductivas y duplicación de esfuerzos.
+                </p>
+                <div class="hero-cta-group">
+                    <a href="#contacto" class="btn btn-primary">
+                        <span>📱</span>
+                        <span>Solicita tu Diagnóstico</span>
+                    </a>
+                    <a href="#metodologia" class="btn btn-secondary">
+                        <span>Conoce la Metodología</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">$450K</div>
+                    <div class="stat-label">MXN anuales que pierden empresas de 35-250 colaboradores por desalineación</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">3.2x</div>
+                    <div class="stat-label">más productividad en equipos alineados vs desalineados</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">47%</div>
+                    <div class="stat-label">de rotación de talento en empresas con cultura organizacional desalineada</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pattern Interrupt Banner -->
+    <section style="background: var(--accent); padding: 2.5rem 0; text-align: center;">
+        <div class="container">
+            <h3 style="color: var(--bg-dark); font-size: clamp(1.5rem, 3vw, 2.2rem); margin: 0; font-weight: 700; line-height: 1.3;">
+                ¿Tu empresa tiene 11-250 colaboradores y el crecimiento genera más caos que orden?
+            </h3>
+            <a href="#contacto" style="display: inline-block; margin-top: 1.5rem; color: var(--bg-dark); text-decoration: none; font-weight: 600; font-size: 1.1rem; border-bottom: 2px solid var(--bg-dark); padding-bottom: 0.25rem; transition: all 0.3s ease;">
+                Esto es para ti →
+            </a>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem-section">
+        <div class="container">
+            <div class="problem-header">
+                <div class="section-eyebrow">El Impuesto Invisible</div>
+                <h2>Tu empresa no falla por falta de talento. Falla por desalineación.</h2>
+                <p style="font-size: 1.15rem; color: var(--text-muted); margin-top: 1.5rem;">
+                    Cada mes que postergas esta decisión, el caos se amplifica. Las empresas familiares y PYMES con 35-250 colaboradores pierden en promedio <strong style="color: var(--primary);">$450,000 MXN anuales</strong> por este problema invisible. Los vicios organizacionales que toman años instaurarse pueden resolverse en meses con la metodología correcta.
+                </p>
+            </div>
+
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">🎵</div>
+                    <h3>Ruido en lugar de música</h3>
+                    <p>Reuniones interminables que no generan decisiones. Información que se estanca en silos departamentales. Comunicación reactiva que multiplica malentendidos.</p>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-icon">🎻</div>
+                    <h3>Solistas sin orquesta</h3>
+                    <p>Departamentos trabajando como islas. Duplicación de tareas. Esfuerzos aislados que no generan resultados colectivos. Tu ROI se diluye.</p>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-icon">⏱️</div>
+                    <h3>Tempo descontrolado</h3>
+                    <p>La sensación extenuante de "correr mucho pero no avanzar". Urgencias que devoran la estrategia. Reacción constante a crisis evitables.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROI Section -->
+    <section class="roi-section">
+        <div class="container">
+            <div class="roi-container">
+                <div class="section-eyebrow" style="color: var(--accent-light);">Impacto Cuantificable</div>
+                <h2>El verdadero costo de la desalineación</h2>
+                <div class="roi-card">
+                    <p class="roi-formula">
+                        Número de empleados × Salario promedio mensual × 0.35 = 
+                        <strong style="color: var(--accent-light);">Dinero que pierdes CADA MES</strong>
+                    </p>
+                    <div class="roi-breakdown">
+                        <div class="roi-item">
+                            <div class="roi-value">18%</div>
+                            <div style="font-size: 0.95rem; opacity: 0.9;">Pérdida de productividad por mala cultura</div>
+                        </div>
+                        <div class="roi-item">
+                            <div class="roi-value">$180K</div>
+                            <div style="font-size: 0.95rem; opacity: 0.9;">Costo promedio por rotación de talento clave</div>
+                        </div>
+                        <div class="roi-item">
+                            <div class="roi-value">6 meses</div>
+                            <div style="font-size: 0.95rem; opacity: 0.9;">Tiempo que toma un nuevo colaborador ser productivo sin alineación</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution-section" id="metodologia">
+        <div class="container">
+            <div style="max-width: 800px; margin-bottom: 3rem;">
+                <div class="section-eyebrow">La Solución</div>
+                <h2>Metodología de Doble Capa: Medimos lo que dicen y lo que hacen</h2>
+                <p style="font-size: 1.15rem; color: var(--text-muted); margin-top: 1.5rem;">
+                    A diferencia de la consultoría tradicional basada en intuiciones, utilizamos <strong>activos intelectuales propios con rigor científico</strong> para diagnosticar la realidad de tu sistema.
+                </p>
+            </div>
+
+            <div class="methodology-grid">
+                <div class="methodology-card">
+                    <div class="methodology-content">
+                        <span class="method-badge">CAPA A: LA "FOTOGRAFÍA"</span>
+                        <h3>Escala de Afinación Organizacional (EAO V.4)</h3>
+                        <p>Instrumento psicométrico validado de 30 ítems que mide 6 factores críticos de tu organización.</p>
+                        <ul class="methodology-features">
+                            <li>Estructura y Gobierno Corporativo</li>
+                            <li>Procesos y Eficiencia Operativa</li>
+                            <li>Cultura y Clima Organizacional</li>
+                            <li>Comunicación y Gestión del Conocimiento</li>
+                            <li>Desarrollo del Talento</li>
+                            <li>Gestión del Cambio y Adaptabilidad</li>
+                        </ul>
+                        <p style="margin-top: 1.5rem; opacity: 0.9; font-size: 0.95rem;">
+                            <strong>Resultado:</strong> Radiografía objetiva de riesgos y prioridades estratégicas en 48 horas.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="methodology-card">
+                    <div class="methodology-content">
+                        <span class="method-badge">CAPA B: EL "VIDEO"</span>
+                        <h3>Simulación de Desalineación Organizacional (SDO³)</h3>
+                        <p>Observación conductual en tiempo real. Ponemos a tu equipo bajo presión controlada para ver sin filtros cómo coordinan, deciden y reaccionan.</p>
+                        <ul class="methodology-features">
+                            <li><strong>Observación:</strong> Registro conductual sin sesgos del discurso oficial</li>
+                            <li><strong>Reflexión:</strong> Análisis profundo de patrones de desalineación</li>
+                            <li><strong>Intervención:</strong> Diseño de ruta correctiva basada en evidencia</li>
+                        </ul>
+                        <p style="margin-top: 1.5rem; opacity: 0.9; font-size: 0.95rem;">
+                            <strong>Resultado:</strong> Espejo conductual que revela fallos invisibles de coordinación y liderazgo.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section style="background: var(--bg-dark); padding: 5rem 0; margin: 0;">
+        <div class="container">
+            <div style="text-align: center; max-width: 800px; margin: 0 auto 4rem;">
+                <div class="section-eyebrow" style="color: var(--accent-light); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem;">Proceso Transparente</div>
+                <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: white; margin-bottom: 1rem;">¿Cómo funciona el Diagnóstico de Afinación?</h2>
+                <p style="font-size: 1.1rem; color: rgba(255,255,255,0.7);">Proceso completo en 6 días. Mínima interrupción operativa. Máximo insight.</p>
+            </div>
+
+            <!-- Timeline Visual -->
+            <div style="max-width: 900px; margin: 0 auto;">
+                
+                <!-- DÍA 1-2 -->
+                <div style="background: rgba(26, 77, 77, 0.3); border-left: 4px solid var(--accent); padding: 2rem; margin-bottom: 2rem; border-radius: 10px;">
+                    <div style="display: inline-block; background: var(--accent); color: var(--bg-dark); width: 50px; height: 50px; border-radius: 50%; text-align: center; line-height: 50px; font-weight: 700; font-size: 1.2rem; margin-bottom: 1rem;">01</div>
+                    <div>
+                        <h3 style="color: var(--accent-light); font-size: 1.5rem; margin-bottom: 1rem;">Días 1-2: Aplicación EAO V.4</h3>
+                        
+                        <p style="margin-bottom: 0.5rem; color: rgba(255,255,255,0.9);"><strong style="color: white;">¿Qué hacemos?</strong> <span style="color: rgba(255,255,255,0.85);">Evaluación psicométrica anónima a tu equipo</span></p>
+                        
+                        <p style="margin-bottom: 0.5rem; color: rgba(255,255,255,0.9);"><strong style="color: white;">¿Quién participa?</strong> <span style="color: rgba(255,255,255,0.85);">Muestra representativa (15-20 personas) o censo completo</span></p>
+                        
+                        <p style="margin-bottom: 0.5rem; color: rgba(255,255,255,0.9);"><strong style="color: white;">¿Cuánto tiempo?</strong> <span style="color: rgba(255,255,255,0.85);">30 minutos por persona, formato online</span></p>
+                        
+                        <p style="margin-bottom: 0; color: rgba(255,255,255,0.9);"><strong style="color: white;">¿Interrumpe la operación?</strong> <span style="color: rgba(255,255,255,0.85);">No, cada quien lo hace en su tiempo disponible</span></p>
+                    </div>
+                </div>
+
+                <!-- DÍA 3 -->
+                <div style="background: rgba(26, 77, 77, 0.3); border-left: 4px solid var(--accent); padding: 2rem; margin-bottom: 2rem; border-radius: 10px;">
+                    <div style="display: inline-block; background: var(--accent); color: var(--bg-dark); width: 50px; height: 50px; border-radius: 50%; text-align: center; line-height: 50px; font-weight: 700; font-size: 1.2rem; margin-bottom: 1rem;">02</div>
+                    <div>
+                        <h3 style="color: var(--accent-light); font-size: 1.5rem; margin-bottom: 1rem;">Día 3: Simulación SDO³</h3>
+                        
+                        <p style="margin-bottom: 0.5rem; color: rgba(255,255,255,0.9);"><strong style="color: white;">¿Qué hacemos?</strong> <span style="color: rgba(255,255,255,0.85);">Tu equipo directivo participa en simulación cooperativa</span></p>
+                        
+                        <p style="margin-bottom: 0.5rem; color: rgba(255,255,255,0.9);"><strong style="color: white;">¿Quién participa?</strong> <span style="color: rgba(255,255,255,0.85);">Solo líderes clave (5-8 personas)</span></p>
+                        
+                        <p style="margin-bottom: 0.5rem; color: rgba(255,255,255,0.9);"><strong style="color: white;">¿Cuánto tiempo?</strong> <span style="color: rgba(255,255,255,0.85);">2-3 horas en una sesión</span></p>
+                        
+                        <p style="margin-bottom: 0.5rem; color: rgba(255,255,255,0.9);"><strong style="color: white;">¿Qué observamos?</strong> <span style="color: rgba(255,255,255,0.85);">Patrones de coordinación, comunicación y toma de decisiones bajo presión</span></p>
+                        
+                        <p style="margin-bottom: 0; color: rgba(255,255,255,0.9);"><strong style="color: white;">¿Es invasivo?</strong> <span style="color: rgba(255,255,255,0.85);">No. No observamos tus reuniones diarias, creamos un entorno seguro de simulación</span></p>
+                    </div>
+                </div>
+
+                <!-- DÍAS 4-5 -->
+                <div style="background: rgba(26, 77, 77, 0.3); border-left: 4px solid var(--accent); padding: 2rem; margin-bottom: 2rem; border-radius: 10px;">
+                    <div style="display: inline-block; background: var(--accent); color: var(--bg-dark); width: 50px; height: 50px; border-radius: 50%; text-align: center; line-height: 50px; font-weight: 700; font-size: 1.2rem; margin-bottom: 1rem;">03</div>
+                    <div>
+                        <h3 style="color: var(--accent-light); font-size: 1.5rem; margin-bottom: 1rem;">Días 4-5: Análisis Profundo</h3>
+                        
+                        <p style="margin-bottom: 0.5rem; color: rgba(255,255,255,0.9);"><strong style="color: white;">¿Qué hacemos?</strong> <span style="color: rgba(255,255,255,0.85);">Procesamos datos, identificamos patrones, priorizamos riesgos</span></p>
+                        
+                        <p style="margin-bottom: 0.5rem; color: rgba(255,255,255,0.9);"><strong style="color: white;">¿Quién participa?</strong> <span style="color: rgba(255,255,255,0.85);">Nadie de tu equipo (trabajo interno nuestro)</span></p>
+                        
+                        <p style="margin-bottom: 0; color: rgba(255,255,255,0.9);"><strong style="color: white;">¿Qué generamos?</strong> <span style="color: rgba(255,255,255,0.85);">Reporte ejecutivo con hallazgos, mapa de riesgos y recomendaciones accionables</span></p>
+                    </div>
+                </div>
+
+                <!-- DÍA 6 -->
+                <div style="background: rgba(26, 77, 77, 0.3); border-left: 4px solid var(--accent); padding: 2rem; margin-bottom: 2rem; border-radius: 10px;">
+                    <div style="display: inline-block; background: var(--accent); color: var(--bg-dark); width: 50px; height: 50px; border-radius: 50%; text-align: center; line-height: 50px; font-weight: 700; font-size: 1.2rem; margin-bottom: 1rem;">04</div>
+                    <div>
+                        <h3 style="color: var(--accent-light); font-size: 1.5rem; margin-bottom: 1rem;">Día 6: Presentación de Resultados</h3>
+                        
+                        <p style="margin-bottom: 0.5rem; color: rgba(255,255,255,0.9);"><strong style="color: white;">¿Qué hacemos?</strong> <span style="color: rgba(255,255,255,0.85);">Sesión ejecutiva donde te presentamos hallazgos</span></p>
+                        
+                        <p style="margin-bottom: 0.5rem; color: rgba(255,255,255,0.9);"><strong style="color: white;">¿Quién participa?</strong> <span style="color: rgba(255,255,255,0.85);">Tú + tu equipo directivo (opcional)</span></p>
+                        
+                        <p style="margin-bottom: 0.5rem; color: rgba(255,255,255,0.9);"><strong style="color: white;">¿Cuánto tiempo?</strong> <span style="color: rgba(255,255,255,0.85);">2 horas</span></p>
+                        
+                        <p style="margin-bottom: 0; color: rgba(255,255,255,0.9);"><strong style="color: white;">¿Qué recibes?</strong> <span style="color: rgba(255,255,255,0.85);">Reporte completo, mapa de prioridades y próximos pasos claros</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resumen en Grid -->
+            <div style="margin-top: 4rem; background: rgba(212, 175, 55, 0.1); padding: 3rem; border-radius: 15px; border: 2px solid rgba(212, 175, 55, 0.3);">
+                <h3 style="color: var(--accent-light); text-align: center; font-size: 1.8rem; margin-bottom: 2rem;">En resumen:</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem;">
+                    <div style="text-align: center;">
+                        <strong style="display: block; color: var(--accent-light); font-size: 1.2rem; margin-bottom: 0.5rem;">📅 Duración total</strong>
+                        <p style="color: white; font-size: 1rem; margin: 0;">6 días de inicio a resultados</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <strong style="display: block; color: var(--accent-light); font-size: 1.2rem; margin-bottom: 0.5rem;">⏱️ Tu tiempo requerido</strong>
+                        <p style="color: white; font-size: 1rem; margin: 0;">4-5 horas máximo</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <strong style="display: block; color: var(--accent-light); font-size: 1.2rem; margin-bottom: 0.5rem;">👥 Participación</strong>
+                        <p style="color: white; font-size: 1rem; margin: 0;">15-20 personas (EAO) + 5-8 líderes (SDO³)</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <strong style="display: block; color: var(--accent-light); font-size: 1.2rem; margin-bottom: 0.5rem;">🏢 Interrupción operativa</strong>
+                        <p style="color: white; font-size: 1rem; margin: 0;">Mínima (diseñado para no afectar productividad)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pillars Section -->
+    <section class="pillars-section">
+        <div class="container">
+            <div style="max-width: 800px; margin: 0 auto 4rem; text-align: center;">
+                <div class="section-eyebrow">Los 3 Resultados que Compras</div>
+                <h2>No vendemos consultoría. Vendemos resultados sostenibles.</h2>
+            </div>
+
+            <div class="pillars-grid">
+                <div class="pillar-card">
+                    <div class="pillar-number">01</div>
+                    <h3>Claridad Total</h3>
+                    <p>Dejamos de adivinar qué pasa en el fondo de la empresa. Te mostramos los problemas que hoy son invisibles para la dirección. Sabrás exactamente dónde estás perdiendo dinero.</p>
+                </div>
+
+                <div class="pillar-card">
+                    <div class="pillar-number">02</div>
+                    <h3>Sincronía Operativa</h3>
+                    <p>Los departamentos dejan de trabajar como islas y empiezan a avanzar al mismo ritmo. Es el fin de los esfuerzos aislados que no dan resultados colectivos.</p>
+                </div>
+
+                <div class="pillar-card">
+                    <div class="pillar-number">03</div>
+                    <h3>Solidez para Crecer</h3>
+                    <p>Recuperas el dinero y la energía que se pierden en el caos operativo. Construimos un sistema que no se rompe cuando la empresa intenta escalar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="container">
+            <div class="services-intro">
+                <div class="section-eyebrow">Portafolio de Soluciones</div>
+                <h2>Desde diagnóstico hasta transformación completa</h2>
+                <p style="color: var(--text-muted); margin-top: 1rem;">
+                    Nuestro sistema escala con tu necesidad. Empieza validando el nivel de desalineación o implementa una transformación integral.
+                </p>
+            </div>
+
+            <!-- Oferta Especial de Lanzamiento -->
+            <div class="special-offer-card">
+                <div class="offer-badge">🎯 OFERTA DE LANZAMIENTO</div>
+                <h3>Diagnóstico Patrocinado - 5 Lugares Disponibles</h3>
+                <p class="offer-description">
+                    Como parte del lanzamiento de Partitura Empresarial, estamos ofreciendo los primeros 5 
+                    <strong>Diagnósticos de Afinación Organizacional de forma patrocinada</strong> 
+                    (valor $8,000-$15,000 MXN).
+                </p>
+                
+                <div class="offer-requirements">
+                    <h4>¿Por qué sin costo?</h4>
+                    <ul>
+                        <li>Estamos construyendo nuestro portafolio de casos de éxito</li>
+                        <li>Queremos demostrar el impacto real de nuestra metodología</li>
+                        <li>Buscamos empresas comprometidas con mejora continua</li>
+                    </ul>
+                </div>
+                
+                <div class="offer-requirements" style="margin-top: 1.5rem;">
+                    <h4>Criterios de selección:</h4>
+                    <ul>
+                        <li>Empresa con 11-250 colaboradores</li>
+                        <li>Problemática activa de desalineación organizacional</li>
+                        <li>Compromiso del decisor principal en el proceso</li>
+                        <li>Participación completa del equipo directivo</li>
+                    </ul>
+                </div>
+                
+                <div class="offer-requirements" style="margin-top: 1.5rem;">
+                    <h4>¿Qué pedimos a cambio?</h4>
+                    <ul>
+                        <li>Feedback honesto sobre el proceso y resultados</li>
+                        <li>Permiso para usar tu caso en nuestro portafolio (anónimo si prefieres)</li>
+                        <li>Disposición a ser referencia (opcional)</li>
+                    </ul>
+                </div>
+                
+                <p class="offer-cta-text">
+                    <strong>Solo 5 empresas serán seleccionadas.</strong><br>
+                    Responde por WhatsApp para validar si calificas.
+                </p>
+                <a href="https://wa.me/524492276838?text=Hola%2C%20me%20interesa%20el%20Diagn%C3%B3stico%20Patrocinado.%20Mi%20empresa%20tiene%20____%20colaboradores.%20Quisiera%20saber%20si%20califico%20para%20ser%20una%20de%20las%205%20empresas%20seleccionadas." 
+                   class="btn btn-primary" 
+                   style="margin-top: 1.5rem; font-size: 1.1rem;">
+                    <span>📱</span>
+                    <span>Solicitar Diagnóstico Patrocinado</span>
+                </a>
+            </div>
+
+            <!-- Countdown Timer -->
+            <div class="countdown-container">
+                <div class="countdown-title">⏰ Oferta válida por tiempo limitado</div>
+                <div class="countdown-timer" id="countdown">
+                    <div class="countdown-block">
+                        <div class="countdown-digit" id="days">00</div>
+                        <div class="countdown-label">Días</div>
+                    </div>
+                    <div class="countdown-block">
+                        <div class="countdown-digit" id="hours">00</div>
+                        <div class="countdown-label">Horas</div>
+                    </div>
+                    <div class="countdown-block">
+                        <div class="countdown-digit" id="minutes">00</div>
+                        <div class="countdown-label">Minutos</div>
+                    </div>
+                    <div class="countdown-block">
+                        <div class="countdown-digit" id="seconds">00</div>
+                        <div class="countdown-label">Segundos</div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin: 4rem 0 3rem; opacity: 0.6;">
+                <p style="font-size: 0.9rem;">O revisa nuestro portafolio completo de servicios:</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-header">
+                    <div class="service-title-group">
+                        <div class="service-type">Punto de entrada</div>
+                        <h3>Diagnóstico de Afinación Organizacional</h3>
+                    </div>
+                    <div class="service-price">
+                        <div class="price-label">Inversión desde</div>
+                        <div class="price-value">$8,000 MXN</div>
+                    </div>
+                </div>
+                <p class="service-description">
+                    Aplicación de la EAO V.4 a tu equipo para obtener una radiografía precisa de riesgos y prioridades estratégicas. Incluye reporte ejecutivo con hallazgos críticos y recomendaciones accionables.
+                </p>
+                <ul class="service-features">
+                    <li>Evaluación psicométrica de 6 factores organizacionales</li>
+                    <li>Reporte ejecutivo en 48 horas</li>
+                    <li>Sesión de presentación de resultados</li>
+                    <li>Mapa de prioridades estratégicas</li>
+                </ul>
+                <a href="https://wa.me/524492276838?text=Hola%2C%20me%20interesa%20el%20Diagn%C3%B3stico%20de%20Afinaci%C3%B3n%20Organizacional.%20Mi%20empresa%20tiene%20_____%20colaboradores%20y%20me%20gustar%C3%ADa%20agendar%20una%20sesi%C3%B3n%20de%20claridad%20para%20conocer%20m%C3%A1s%20detalles." 
+                   class="btn btn-primary" 
+                   style="margin-top: 1.5rem; display: inline-flex;">
+                    <span>📱</span>
+                    <span>Solicitar este servicio</span>
+                </a>
+            </div>
+
+            <div class="service-card">
+                <div class="service-header">
+                    <div class="service-title-group">
+                        <div class="service-type">Análisis profundo</div>
+                        <h3>Diagnóstico Profundo de Arquitectura Organizacional</h3>
+                    </div>
+                    <div class="service-price">
+                        <div class="price-label">Inversión desde</div>
+                        <div class="price-value">$20,000 MXN</div>
+                    </div>
+                </div>
+                <p class="service-description">
+                    Combinación de EAO V.4 + SDO³ para obtener tanto la percepción como la conducta real de tu equipo. Identifica con precisión quirúrgica los fallos invisibles de coordinación.
+                </p>
+                <ul class="service-features">
+                    <li>Evaluación psicométrica completa</li>
+                    <li>Simulación conductual en tiempo real</li>
+                    <li>Análisis de brecha entre "lo que dicen" y "lo que hacen"</li>
+                    <li>Reporte integral con evidencia videográfica</li>
+                </ul>
+                <a href="https://wa.me/524492276838?text=Hola%2C%20me%20interesa%20el%20Diagn%C3%B3stico%20Profundo%20de%20Arquitectura%20Organizacional.%20Quisiera%20conocer%20m%C3%A1s%20sobre%20c%C3%B3mo%20funciona%20la%20metodolog%C3%ADa%20EAO%20%2B%20SDO%C2%B3%20y%20agendar%20una%20sesi%C3%B3n." 
+                   class="btn btn-primary" 
+                   style="margin-top: 1.5rem; display: inline-flex;">
+                    <span>📱</span>
+                    <span>Solicitar este servicio</span>
+                </a>
+            </div>
+
+            <div class="service-card">
+                <div class="service-header">
+                    <div class="service-title-group">
+                        <div class="service-type">Diseño estratégico</div>
+                        <h3>Diseño de Ruta de Alineación</h3>
+                    </div>
+                    <div class="service-price">
+                        <div class="price-label">Inversión desde</div>
+                        <div class="price-value">$45,000 MXN</div>
+                    </div>
+                </div>
+                <p class="service-description">
+                    Plan estratégico personalizado con intervenciones específicas, métricas de seguimiento y roadmap de implementación. De la radiografía a la acción.
+                </p>
+                <ul class="service-features">
+                    <li>Diagnóstico profundo incluido</li>
+                    <li>Diseño de intervenciones específicas por factor</li>
+                    <li>Roadmap de implementación a 6-12 meses</li>
+                    <li>KPIs de seguimiento y tablero de control</li>
+                </ul>
+                <a href="https://wa.me/524492276838?text=Hola%2C%20me%20interesa%20el%20Dise%C3%B1o%20de%20Ruta%20de%20Alineaci%C3%B3n.%20Quisiera%20agendar%20una%20reuni%C3%B3n%20de%20consultor%C3%ADa%20para%20discutir%20el%20roadmap%20estrat%C3%A9gico%20para%20mi%20empresa." 
+                   class="btn btn-primary" 
+                   style="margin-top: 1.5rem; display: inline-flex;">
+                    <span>📱</span>
+                    <span>Solicitar este servicio</span>
+                </a>
+            </div>
+
+            <div class="service-card" style="border: 3px solid var(--accent);">
+                <div class="service-header">
+                    <div class="service-title-group">
+                        <div class="service-type">🔥 Transformación completa</div>
+                        <h3>Programa de Implementación Directiva</h3>
+                    </div>
+                    <div class="service-price">
+                        <div class="price-label">Inversión</div>
+                        <div class="price-value">Cotización personalizada</div>
+                    </div>
+                </div>
+                <p class="service-description">
+                    Acompañamiento integral de 6-9 meses para ejecutar la transformación. Incluye todas las fases anteriores más implementación mano a mano con tu equipo directivo.
+                </p>
+                <ul class="service-features">
+                    <li>Diagnóstico + Diseño de Ruta incluidos</li>
+                    <li>Sesiones mensuales con equipo directivo</li>
+                    <li>Ingeniería de Alineación de Equipos</li>
+                    <li>Laboratorio de Liderazgo Adaptativo</li>
+                    <li>Gestión de Cultura de Innovación</li>
+                    <li>Medición de impacto trimestral</li>
+                </ul>
+                <a href="https://wa.me/524492276838?text=Hola%2C%20me%20interesa%20el%20Programa%20de%20Implementaci%C3%B3n%20Directiva.%20Mi%20empresa%20tiene%20_____%20colaboradores.%20Quisiera%20agendar%20una%20reuni%C3%B3n%20de%20consultor%C3%ADa%20para%20recibir%20una%20cotizaci%C3%B3n%20personalizada%20del%20programa%20completo%20de%206-9%20meses." 
+                   class="btn btn-primary" 
+                   style="margin-top: 1.5rem; display: inline-flex;">
+                    <span>📱</span>
+                    <span>Solicitar cotización personalizada</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founder Section -->
+    <section style="background: linear-gradient(135deg, var(--primary) 0%, var(--bg-dark) 100%); padding: 5rem 0; margin: 0;">
+        <div class="container">
+            <div style="max-width: 1000px; margin: 0 auto;">
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <div class="section-eyebrow" style="color: var(--accent-light); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem;">Quién está detrás</div>
+                    <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: white; margin-bottom: 0;">Pedro Daniel Cruz Verdeja</h2>
+                    <h3 style="color: var(--accent-light); font-size: 1.3rem; font-weight: 400; margin-top: 0.5rem;">Fundador de Partitura Empresarial</h3>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: center;">
+                    <!-- Foto del fundador -->
+                    <div style="text-align: center;">
+                        <img src="pedro-cruz-fundador.jpg" 
+                             alt="Pedro Daniel Cruz Verdeja - Fundador de Partitura Empresarial"
+                             style="border-radius: 50%; width: 200px; height: 200px; object-fit: cover; border: 4px solid var(--accent); box-shadow: 0 10px 40px rgba(0,0,0,0.3); margin: 0 auto;">
+                    </div>
+                    
+                    <!-- Contenido -->
+                    <div>
+                        <p style="font-size: 1.15rem; color: rgba(255,255,255,0.9); line-height: 1.8; margin-bottom: 1.5rem;">
+                            Psicólogo organizacional con <strong style="color: var(--accent-light);">Maestría en Administración con enfoque en Alta Dirección</strong>. Profesor universitario de Innovación Empresarial y desarrollador de las metodologías EAO V.4 y SDO³.
+                        </p>
+                        
+                        <p style="font-size: 1.1rem; color: rgba(255,255,255,0.85); line-height: 1.8; font-style: italic; border-left: 4px solid var(--accent); padding-left: 1.5rem; margin: 2rem 0;">
+                            "Fundé Partitura Empresarial después de ver el mismo patrón repetirse durante años: empresas con talento increíble destruyéndose por falta de alineación. Decidí crear una metodología científica para resolver esto de raíz, no con parches motivacionales."
+                        </p>
+                        
+                        <!-- Credenciales Grid -->
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 2.5rem;">
+                            <div style="background: rgba(26, 77, 77, 0.4); padding: 1.5rem; border-radius: 10px; border-left: 3px solid var(--accent);">
+                                <span style="font-size: 2rem; display: block; margin-bottom: 0.5rem;">🎓</span>
+                                <strong style="color: white; display: block; margin-bottom: 0.25rem;">Maestría en Administración</strong>
+                                <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; margin: 0;">Alta Dirección</p>
+                            </div>
+                            <div style="background: rgba(26, 77, 77, 0.4); padding: 1.5rem; border-radius: 10px; border-left: 3px solid var(--accent);">
+                                <span style="font-size: 2rem; display: block; margin-bottom: 0.5rem;">🧠</span>
+                                <strong style="color: white; display: block; margin-bottom: 0.25rem;">Psicólogo Organizacional</strong>
+                                <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; margin: 0;">Especialista en cultura y alineación</p>
+                            </div>
+                            <div style="background: rgba(26, 77, 77, 0.4); padding: 1.5rem; border-radius: 10px; border-left: 3px solid var(--accent);">
+                                <span style="font-size: 2rem; display: block; margin-bottom: 0.5rem;">👨‍🏫</span>
+                                <strong style="color: white; display: block; margin-bottom: 0.25rem;">Profesor Universitario</strong>
+                                <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; margin: 0;">Innovación Empresarial</p>
+                            </div>
+                            <div style="background: rgba(26, 77, 77, 0.4); padding: 1.5rem; border-radius: 10px; border-left: 3px solid var(--accent);">
+                                <span style="font-size: 2rem; display: block; margin-bottom: 0.5rem;">🔬</span>
+                                <strong style="color: white; display: block; margin-bottom: 0.25rem;">Metodología Validada</strong>
+                                <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; margin: 0;">EAO V.4 (CFI≥.95) + SDO³</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contacto">
+        <div class="container">
+            <div class="cta-content">
+                <h2>¿Tu sistema está preparado para crecer?</h2>
+                <p>Agenda una Sesión de Claridad Organizacional (30-40 min) para evaluar si tu empresa está lista para su siguiente etapa.</p>
+
+                <div class="qualification-checklist">
+                    <h4>Esta conversación es DEFINITIVAMENTE para ti si cumples estos criterios:</h4>
+                    <ul class="checklist">
+                        <li>Tu empresa tiene entre 11 y 250 colaboradores</li>
+                        <li>Sientes que el crecimiento está amplificando el caos en lugar de resolverlo</li>
+                        <li>Los mismos problemas siguen apareciendo aunque cambies de personal</li>
+                        <li>Inviertes en soluciones pero los resultados no se sostienen</li>
+                        <li>Estás dispuesto a invertir en soluciones de fondo, no en parches</li>
+                        <li><strong>Estás listo para agendar una sesión de claridad esta semana</strong></li>
+                    </ul>
+                </div>
+
+                <a href="https://wa.me/524492276838?text=Hola%2C%20me%20interesa%20el%20Diagn%C3%B3stico%20de%20Afinaci%C3%B3n%20Organizacional.%20Mi%20empresa%20tiene%20____%20empleados%20y%20nuestro%20principal%20reto%20es%20____" 
+                   class="btn btn-primary" 
+                   style="font-size: 1.15rem; padding: 1.25rem 3rem;">
+                    <span>📱</span>
+                    <span>Solicitar Sesión de Claridad por WhatsApp</span>
+                </a>
+
+                <p style="margin-top: 2rem; font-size: 0.95rem; opacity: 0.8;">
+                    Respuesta en menos de 2 horas • Sin compromiso • 100% confidencial
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div style="font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--accent-light); margin-bottom: 2rem;">
+                    🎼 PARTITURA EMPRESARIAL
+                </div>
+                
+                <div class="footer-contact">
+                    <span>📱 +52 449 227 6838</span>
+                    <span>📍 Aguascalientes, México</span>
+                </div>
+
+                <!-- Social Links -->
+                <div class="social-links">
+                    <a href="/cdn-cgi/l/email-protection#fb8b9e9f8994d58b9a898f928f8e899a9e968b899e889a89929a97bb9c969a9297d5989496" class="social-link" title="Email">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                        </svg>
+                    </a>
+                    
+                    <a href="https://linkedin.com/in/pedrodanielcruzverdeja" class="social-link" title="LinkedIn" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                    </a>
+                    
+                    <a href="https://wa.me/524492276838" class="social-link" title="WhatsApp" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="footer-bottom">
+                    <p style="opacity: 0.6; max-width: 600px; margin: 0 auto;">
+                        "Las mejores organizaciones no son las que nunca se desafinan,<br>
+                        sino las que saben recuperar la armonía rápidamente."
+                    </p>
+                    <p style="margin-top: 1.5rem; font-size: 0.85rem; opacity: 0.5;">
+                        © 2026 Partitura Empresarial • Todos los derechos reservados
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/524492276838?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20Partitura%20Empresarial" 
+       class="whatsapp-float" 
+       target="_blank"
+       aria-label="Contactar por WhatsApp">
+        💬
+    </a>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll-triggered animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.problem-card, .pillar-card, .service-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Track WhatsApp clicks for analytics
+        document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+            link.addEventListener('click', function() {
+                console.log('WhatsApp CTA clicked:', this.textContent);
+            });
+        });
+
+        // Countdown Timer (10 días desde hoy)
+        function initCountdown() {
+            const now = new Date().getTime();
+            const countDownDate = now + (10 * 24 * 60 * 60 * 1000);
+            
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const distance = countDownDate - now;
+                
+                if (distance < 0) {
+                    document.getElementById("countdown").innerHTML = "<p style='color: var(--accent-light); font-size: 1.5rem;'>¡Oferta finalizada!</p>";
+                    return;
+                }
+                
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                document.getElementById("days").textContent = String(days).padStart(2, '0');
+                document.getElementById("hours").textContent = String(hours).padStart(2, '0');
+                document.getElementById("minutes").textContent = String(minutes).padStart(2, '0');
+                document.getElementById("seconds").textContent = String(seconds).padStart(2, '0');
+            }
+            
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+        }
+        
+        window.addEventListener('load', initCountdown);
+        
+        // Transiciones dinámicas entre secciones
+        const sectionObserverOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, sectionObserverOptions);
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelecto
